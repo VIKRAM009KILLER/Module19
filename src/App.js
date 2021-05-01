@@ -9,17 +9,23 @@ import {
 from "react-router-dom";
 import {Button} from 'react-bootstrap-buttons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import Nav from "react-bootstrap/Nav";
-// import {createStore} from 'redux'
-// import $ from 'jquery';
+
+
+
+
 
 function App() {
+      
+
+
   return (
+
+    
     <div id="app">
       <Router>
         <div>
           <ul className="nav">
-            {/* <li><Link to="/">Home</Link></li> */}
+            <li><Link to="/">Home</Link></li>
             <br></br>
             <br></br>
             
@@ -248,13 +254,15 @@ function Board() {
 }
 
 var turn=0;
-var c1=0;
-var c2=0;
-var c3=0;
-var c4=0;
-var c5=0;
-var c6=0;
-var c7=0;
+var turn1=0;
+var turn2=0;
+var col1=0;
+var col2=0;
+var col3=0;
+var col4=0;
+var col5=0;
+var col6=0;
+var col7=0;
 let arr=[
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
@@ -271,47 +279,54 @@ var win=""
 
 
 function clickHandler(ele){
-  turn++;
+  turn++
   console.log(arr)
+  
   if (turn%2===0){
+    document.getElementById("plr").innerHTML = "Turn of Player1: "+plr
+    console.log(turn)
     plr = window.player1
     clr = window.clr2
     e=1
     win=window.player2
-  } else{
+    turn2++;
+  } else {
+    document.getElementById("plr").innerHTML = "Turn of Player2: "+plr
+    console.log(turn)
     plr = window.player2
     clr = window.clr1
     e=2
     win=window.player1
+    turn1++;
   }
-  document.getElementById("plr").innerHTML = "Turn: "+plr
-  console.log(turn)
+  // document.getElementById("plr").innerHTML = "Turn: "+plr
+  // console.log(turn)
 
   if(ele.target.id ==="1" || ele.target.id ==="8" || ele.target.id ==="15" || ele.target.id ==="22" || 
     ele.target.id ==="29" || ele.target.id ==="36"){
-    c1++;
-    console.log(c1)
-    if(c1===1){
+    col1++;
+    console.log(col1)
+    if(col1===1){
       document.getElementById("36").style.backgroundColor=clr;
       arr[5][0]=e
     }
-    if(c1===2){
+    if(col1===2){
       document.getElementById("29").style.backgroundColor=clr;
       arr[4][0]=e      
     }
-    if(c1===3){
+    if(col1===3){
       document.getElementById("22").style.backgroundColor=clr;
       arr[3][0]=e
     }
-    if(c1===4){
+    if(col1===4){
       document.getElementById("15").style.backgroundColor=clr;
       arr[2][0]=e
     }
-    if(c1===5){
+    if(col1===5){
       document.getElementById("8").style.backgroundColor=clr;
       arr[1][0]=e
     }
-    if(c1===6){
+    if(col1===6){
       document.getElementById("1").style.backgroundColor=clr;
       arr[0][0]=e
 
@@ -326,29 +341,29 @@ function clickHandler(ele){
 
   if(ele.target.id ==="2" || ele.target.id ==="9" || ele.target.id ==="16" || ele.target.id ==="23" || 
   ele.target.id ==="30" || ele.target.id ==="37"){
-    c2++;
-    console.log(c2)
-    if(c2===1){
+    col2++;
+    console.log(col2)
+    if(col2===1){
       document.getElementById("37").style.backgroundColor=clr;
       arr[5][1]=e
     }
-    if(c2===2){
+    if(col2===2){
       document.getElementById("30").style.backgroundColor=clr;
       arr[4][1]=e      
     }
-    if(c2===3){
+    if(col2===3){
       document.getElementById("23").style.backgroundColor=clr;
       arr[3][1]=e
     }
-    if(c2===4){
+    if(col2===4){
       document.getElementById("16").style.backgroundColor=clr;
       arr[2][1]=e
     }
-    if(c2===5){
+    if(col2===5){
       document.getElementById("9").style.backgroundColor=clr;
       arr[1][1]=e
     }
-    if(c2===6){
+    if(col2===6){
       document.getElementById("2").style.backgroundColor=clr;
       arr[0][1]=e
 
@@ -363,29 +378,29 @@ function clickHandler(ele){
 
   if(ele.target.id ==="3" || ele.target.id ==="10" || ele.target.id ==="17" || ele.target.id ==="24" || 
   ele.target.id ==="31" || ele.target.id ==="38"){
-    c3++;
-    console.log(c3)
-    if(c3===1){
+    col3++;
+    console.log(col3)
+    if(col3===1){
       document.getElementById("38").style.backgroundColor=clr;
       arr[5][2]=e
     }
-    if(c3===2){
+    if(col3===2){
       document.getElementById("31").style.backgroundColor=clr;
       arr[4][2]=e      
     }
-    if(c3===3){
+    if(col3===3){
       document.getElementById("24").style.backgroundColor=clr;
       arr[3][2]=e
     }
-    if(c3===4){
+    if(col3===4){
       document.getElementById("17").style.backgroundColor=clr;
       arr[2][2]=e
     }
-    if(c3===5){
+    if(col3===5){
       document.getElementById("10").style.backgroundColor=clr;
       arr[1][2]=e
     }
-    if(c3===6){
+    if(col3===6){
       document.getElementById("3").style.backgroundColor=clr;
       arr[0][2]=e
 
@@ -400,29 +415,29 @@ function clickHandler(ele){
 
   if(ele.target.id ==="4" || ele.target.id ==="11" || ele.target.id ==="18" || ele.target.id ==="25" || 
   ele.target.id ==="32" || ele.target.id ==="39"){
-    c4++;
-    console.log(c4)
-    if(c4===1){
+    col4++;
+    console.log(col4)
+    if(col4===1){
       document.getElementById("39").style.backgroundColor=clr;
       arr[5][3]=e
     }
-    if(c4===2){
+    if(col4===2){
       document.getElementById("32").style.backgroundColor=clr;
       arr[4][3]=e      
     }
-    if(c4===3){
+    if(col4===3){
       document.getElementById("25").style.backgroundColor=clr;
       arr[3][3]=e
     }
-    if(c4===4){
+    if(col4===4){
       document.getElementById("18").style.backgroundColor=clr;
       arr[2][3]=e
     }
-    if(c4===5){
+    if(col4===5){
       document.getElementById("11").style.backgroundColor=clr;
       arr[1][3]=e
     }
-    if(c4===6){
+    if(col4===6){
       document.getElementById("4").style.backgroundColor=clr;
       arr[0][3]=e
 
@@ -437,30 +452,30 @@ function clickHandler(ele){
 
   if(ele.target.id ==="5" || ele.target.id ==="12" || ele.target.id ==="19" || ele.target.id ==="26" || 
   ele.target.id ==="33" || ele.target.id ==="40"){
-    c5++;
-    console.log(c5)
-    if(c5===1){
+    col5++;
+    console.log(col5)
+    if(col5===1){
       document.getElementById("40").style.backgroundColor=clr;
       arr[5][4]=e
     }
-    if(c5===2){
+    if(col5===2){
       document.getElementById("33").style.backgroundColor=clr;
       arr[4][4]=e      
     }
-    if(c5===3){
+    if(col5===3){
       document.getElementById("26").style.backgroundColor=clr;
       arr[3][4]=e
     }
-    if(c5===4){
+    if(col5===4){
       document.getElementById("19").style.backgroundColor=clr;
       arr[2][4]=e
 
     }
-    if(c5===5){
+    if(col5===5){
       document.getElementById("12").style.backgroundColor=clr;
       arr[1][4]=e
     }
-    if(c5===6){
+    if(col5===6){
       document.getElementById("5").style.backgroundColor=clr;
       arr[0][4]=e
 
@@ -475,29 +490,29 @@ function clickHandler(ele){
 
   if(ele.target.id ==="6" || ele.target.id ==="13" || ele.target.id ==="20" || ele.target.id ==="27" || 
   ele.target.id ==="34" || ele.target.id ==="41"){
-    c6++;
-    console.log(c6)
-    if(c6===1){
+    col6++;
+    console.log(col6)
+    if(col6===1){
       document.getElementById("41").style.backgroundColor=clr;
       arr[5][5]=e
     }
-    if(c6===2){
+    if(col6===2){
       document.getElementById("34").style.backgroundColor=clr;
       arr[4][5]=e      
     }
-    if(c6===3){
+    if(col6===3){
       document.getElementById("27").style.backgroundColor=clr;
       arr[3][5]=e
     }
-    if(c6===4){
+    if(col6===4){
       document.getElementById("20").style.backgroundColor=clr;
       arr[2][5]=e
     }
-    if(c6===5){
+    if(col6===5){
       document.getElementById("13").style.backgroundColor=clr;
       arr[1][5]=e
     }
-    if(c6===6){
+    if(col6===6){
       document.getElementById("6").style.backgroundColor=clr;
       arr[0][5]=e
 
@@ -512,29 +527,29 @@ function clickHandler(ele){
 
   if(ele.target.id ==="7" || ele.target.id ==="14" || ele.target.id ==="21" || ele.target.id ==="28" || 
   ele.target.id ==="35" || ele.target.id ==="42"){
-    c7++;
-    console.log(c7)
-    if(c7===1){
+    col7++;
+    console.log(col7)
+    if(col7===1){
       document.getElementById("42").style.backgroundColor=clr;
       arr[5][6]=e
     }
-    if(c7===2){
+    if(col7===2){
       document.getElementById("35").style.backgroundColor=clr;
       arr[4][6]=e      
     }
-    if(c7===3){
+    if(col7===3){
       document.getElementById("28").style.backgroundColor=clr;
       arr[3][6]=e
     }
-    if(c7===4){
+    if(col7===4){
       document.getElementById("21").style.backgroundColor=clr;
       arr[2][6]=e
     }
-    if(c7===5){
+    if(col7===5){
       document.getElementById("14").style.backgroundColor=clr;
       arr[1][6]=e
     }
-    if(c7===6){
+    if(col7===6){
       document.getElementById("7").style.backgroundColor=clr;
       arr[0][6]=e
 
@@ -588,8 +603,12 @@ function clickHandler(ele){
     }
 
     if (winner===true){
-      document.getElementById("plr").innerHTML = "Winner: "+ win +" " + "Total turns: " + turn
-      
+      if(win===window.player2){
+      document.getElementById("plr").innerHTML = "Winner: "+ "Player2 " + " " +"Total turns: " + turn2
+      }
+      else {
+        document.getElementById("plr").innerHTML = "Winner: "+ "Player1 " + " " +"Total turns: " + turn1
+      }
 
     }
 }
